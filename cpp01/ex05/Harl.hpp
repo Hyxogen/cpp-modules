@@ -6,20 +6,20 @@
 #define HARL_INFOPROC_COUNT 8
 
 class Harl {
-    typedef void (Harl::*info_proc)() const;
+        typedef void (Harl::*info_proc)() const;
 
-    static const info_proc procs[HARL_INFOPROC_COUNT];
+        static const info_proc procs[HARL_INFOPROC_COUNT];
 
-    void debug() const;
-    void info() const;
-    void warning() const;
-    void error() const;
-    void unknown() const;
+        void debug() const;
+        void info() const;
+        void warning() const;
+        void error() const;
+        void unknown() const;
 
-public:
-    Harl();
+    public:
+        Harl();
 
-    void complain(const std::string &level) const;
+        void complain(const std::string &level) const;
 };
 
 std::size_t hash(const std::string &str);

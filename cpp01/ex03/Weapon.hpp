@@ -4,18 +4,18 @@
 #include <string>
 
 class Weapon {
-    std::string _type;
+        std::string _type;
 
-public:
-    explicit Weapon(const std::string &type);
-    Weapon(const Weapon &other);
+    public:
+        explicit Weapon(const std::string &type);
+        Weapon(const Weapon &other);
 
-    ~Weapon();
+        ~Weapon();
 
-    const std::string &getType() const;
-    void               setType(const std::string &_type);
+        const std::string &getType() const;
+        void               setType(const std::string &_type);
 
-    Weapon &operator=(const Weapon &other);
+        Weapon &operator=(const Weapon &other);
 };
 
 #endif

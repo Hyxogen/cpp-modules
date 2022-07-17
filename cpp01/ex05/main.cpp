@@ -3,11 +3,11 @@
 #include "Harl.hpp"
 
 int main() {
-    Harl harl;
+        Harl harl;
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    harl.complain("wat?");
+        harl.complain("DEBUG");
+        harl.complain("INFO");
+        harl.complain("WARNING");
+        harl.complain("ERROR");
+        harl.complain("wat?");
 }

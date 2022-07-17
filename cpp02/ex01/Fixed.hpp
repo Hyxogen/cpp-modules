@@ -4,23 +4,23 @@
 #include <ostream>
 
 class Fixed {
-    int              _data;
-    const static int POINT;
+        int              _data;
+        const static int POINT;
 
-public:
-    Fixed();
-    Fixed(int value);
-    Fixed(float value);
-    Fixed(const Fixed &other);
+    public:
+        Fixed();
+        Fixed(int value);
+        Fixed(float value);
+        Fixed(const Fixed &other);
 
-    ~Fixed();
+        ~Fixed();
 
-    Fixed &operator=(const Fixed &other);
+        Fixed &operator=(const Fixed &other);
 
-    int   getRawBits() const;
-    void  setRawBits(int raw);
-    int   toInt() const;
-    float toFloat() const;
+        int   getRawBits() const;
+        void  setRawBits(int raw);
+        int   toInt() const;
+        float toFloat() const;
 };
 std::ostream &operator<<(std::ostream &stream, const Fixed &fixed);
 

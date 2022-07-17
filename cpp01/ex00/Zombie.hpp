@@ -4,22 +4,22 @@
 #include <string>
 
 class Zombie {
-    std::string _name;
+        std::string _name;
 
-    Zombie();
-    Zombie(const Zombie &other);
+        Zombie();
+        Zombie(const Zombie &other);
 
-    Zombie &operator=(const Zombie &other);
+        Zombie &operator=(const Zombie &other);
 
-public:
-    explicit Zombie(const std::string &name);
+    public:
+        explicit Zombie(const std::string &name);
 
-    ~Zombie();
+        ~Zombie();
 
-    void announce() const;
+        void announce() const;
 
-    static Zombie *newZombie(const std::string &name);
-    static void    randomChump(const std::string &name);
+        static Zombie *newZombie(const std::string &name);
+        static void    randomChump(const std::string &name);
 };
 
 /* The only reason also have these functions in the global scope is because the
