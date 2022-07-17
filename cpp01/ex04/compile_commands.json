@@ -1,0 +1,20 @@
+[
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex04",
+  "arguments": [
+   "clang++",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "main.cpp"
+ }
+]

@@ -1,0 +1,128 @@
+[
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex00",
+  "arguments": [
+   "clang++",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "main.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex00",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Zombie.cpp.o",
+   "-c",
+   "Zombie.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Zombie.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex00",
+  "arguments": [
+   "clang++",
+   "-o",
+   "randomChump.cpp.o",
+   "-c",
+   "randomChump.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "randomChump.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex00",
+  "arguments": [
+   "clang++",
+   "-o",
+   "newZombie.cpp.o",
+   "-c",
+   "newZombie.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "newZombie.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "main.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Zombie.cpp.o",
+   "-c",
+   "Zombie.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Zombie.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "zombieHorde.cpp.o",
+   "-c",
+   "zombieHorde.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "zombieHorde.cpp"
+ }
+]

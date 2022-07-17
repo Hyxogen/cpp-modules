@@ -1,0 +1,38 @@
+[
+ {
+  "directory": "/home/daan/Projects/CPP/CPP00/ex02",
+  "arguments": [
+   "clang++",
+   "-o",
+   "tests.cpp.o",
+   "-c",
+   "tests.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "tests.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP00/ex02",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Account.cpp.o",
+   "-c",
+   "Account.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Account.cpp"
+ }
+]

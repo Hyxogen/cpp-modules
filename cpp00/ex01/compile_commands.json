@@ -1,0 +1,74 @@
+[
+ {
+  "directory": "/home/daan/Projects/CPP/CPP00/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Main.cpp.o",
+   "-c",
+   "Main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Main.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP00/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "PhoneBook.cpp.o",
+   "-c",
+   "PhoneBook.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "PhoneBook.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP00/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Contact.cpp.o",
+   "-c",
+   "Contact.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Contact.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP00/ex01",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Util.cpp.o",
+   "-c",
+   "Util.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Util.cpp"
+ }
+]

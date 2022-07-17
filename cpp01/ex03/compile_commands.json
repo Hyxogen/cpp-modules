@@ -1,0 +1,74 @@
+[
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex03",
+  "arguments": [
+   "clang++",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "main.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex03",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Weapon.cpp.o",
+   "-c",
+   "Weapon.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Weapon.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex03",
+  "arguments": [
+   "clang++",
+   "-o",
+   "HumanA.cpp.o",
+   "-c",
+   "HumanA.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "HumanA.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex03",
+  "arguments": [
+   "clang++",
+   "-o",
+   "HumanB.cpp.o",
+   "-c",
+   "HumanB.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "HumanB.cpp"
+ }
+]

@@ -1,0 +1,149 @@
+# Language
+Standard: Latest
+
+# Spaces
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceAroundPointerQualifiers: Default
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: Never
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: 1
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Allow short statements on a single line
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+
+# Bin pack stuff
+BinPackArguments: true
+BinPackParameters: true
+
+# Pointer/Reference alignment
+PointerAlignment: Right
+ReferenceAlignment: Pointer
+
+# Align consecutive things
+AlignConsecutiveAssignments: AcrossComments
+AlignConsecutiveBitFields: AcrossComments
+AlignConsecutiveDeclarations: AcrossComments
+AlignConsecutiveMacros: AcrossComments
+
+# Includes
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^".*\.h"'
+    Priority: 1
+  - Regex: '^".*\.hh"'
+    Priority: 2
+  - Regex: '^<.*\.h>'
+    Priority: 3
+  - Regex: '^<.*>'
+    Priority: 4
+IncludeIsMainRegex: ""
+IncludeIsMainSourceRegex: null
+
+# Macros
+AttributeMacros: []
+ForEachMacros: []
+IfMacros: []
+StatementAttributeLikeMacros: []
+StatementMacros: []
+TypenameMacros: []
+WhitespaceSensitiveMacros: []
+NamespaceMacros: []
+MacroBlockBegin: null
+MacroBlockEnd: null
+
+# Indent width
+IndentWidth: 4
+PPIndentWidth: 1
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+AccessModifierOffset: -4
+
+# Indentation flags
+IndentAccessModifiers: false
+IndentCaseBlocks: true
+IndentCaseLabels: false
+IndentExternBlock: Indent
+IndentGotoLabels: false
+IndentPPDirectives: AfterHash
+IndentWrappedFunctionNames: false
+
+# Indentation options
+LambdaBodyIndentation: Signature
+NamespaceIndentation: All
+
+# Comments
+FixNamespaceComments: false
+ReflowComments: true
+AlignTrailingComments: true
+CommentPragmas: ''
+
+# Empty lines
+EmptyLineAfterAccessModifier: Never
+EmptyLineBeforeAccessModifier: LogicalBlock
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+
+# Parameter alignment
+AlignAfterOpenBracket: AlwaysBreak
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+
+# Alignment
+AlignArrayOfStructures: Right
+AlignEscapedNewlines: Right
+
+# Operator spacing
+AlignOperands: AlignAfterOperator
+BreakBeforeBinaryOperators: NonAssignment
+AlwaysBreakBeforeMultilineStrings: true
+BreakStringLiterals: true
+BreakBeforeTernaryOperators: true
+BitFieldColonSpacing: Both
+Cpp11BracedListStyle: false
+InsertTrailingCommas: None
+
+# Block breaks
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Attach
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+CompactNamespaces: false
+
+# Spacing
+UseTab: Never
+ColumnLimit: 80
+UseCRLF: false
+
+# Sorting
+SortIncludes: CaseSensitive
+SortUsingDeclarations: true
+
+# Other
+DeriveLineEnding: false
+DerivePointerAlignment: false

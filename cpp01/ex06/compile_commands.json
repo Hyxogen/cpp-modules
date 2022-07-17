@@ -1,0 +1,74 @@
+[
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex05",
+  "arguments": [
+   "clang++",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "main.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex05",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Harl.cpp.o",
+   "-c",
+   "Harl.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Harl.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex06",
+  "arguments": [
+   "clang++",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "main.cpp"
+ },
+ {
+  "directory": "/home/daan/Projects/CPP/CPP01/ex06",
+  "arguments": [
+   "clang++",
+   "-o",
+   "Harl.cpp.o",
+   "-c",
+   "Harl.cpp",
+   "-std=c++98",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-pedantic",
+   "-O3",
+   "-g0"
+  ],
+  "file": "Harl.cpp"
+ }
+]

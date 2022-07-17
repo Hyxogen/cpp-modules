@@ -1,0 +1,43 @@
+TARGET		:= test
+
+SOURCES		:= main.cpp ClapTrap.cpp ScavTrap.cpp
+HEADERS		:= ClapTrap.hpp ScavTrap.hpp
+HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
+OBJECTS		:= $(addsuffix .o, $(SOURCES))
+
+CXX			:= clang++
+CXX_FLAGS	:= -I. -std=c++98 -Wall -Wextra -Werror -pedantic -O3 -g0 -MMD
+
+SILENT		:= @
+ifndef verbose
+	SILENT	:=
+endif
+
+.PHONY: all
+all: $(TARGET)
+
+.PHONY: format
+format:
+	$(SILENT)clang-format -i $(SOURCES) $(HEADERS) 
+
+$(TARGET): $(OBJECTS)
+	$(SILENT)$(CXX) -o $(TARGET) $(OBJECTS) $(CXX_FLAGS)
+
+-include $(HEADER_DEPS)
+%.cpp.o: %.cpp
+	$(SILENT)$(CXX) $(CXX_FLAGS) -o $@ -c $<
+
+.PHONY: clean
+clean:
+	$(SILENT)rm -f $(OBJECTS) $(HEADER_DEPS)
+
+.PHONY: fclean
+fclean:
+	$(SILENT)${MAKE} clean
+	$(SILENT)rm -f $(TARGET)
+
+.PHONY: re
+re:
+	${MAKE} fclean
+	${MAKE} all
+
