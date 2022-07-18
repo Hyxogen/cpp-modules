@@ -54,17 +54,17 @@ int main() {
         fg_copy.attack("itself in confusion");
         better_fg.highFivesGuys();
 
+        DiamondTrap dd("DI4MOND-TP");
         for (int i = 0; i < 50; ++i) {
                 fg.highFivesGuys();
                 cv.attack("Better CL4P-TP");
                 fg.highFivesGuys();
+                dd.attack("everyone else");
         }
         fg.beRepaired(42);
 
         cv = better_cv;
         cv.guardGate();
         cv.attack("Better CL4P-TP");
-
-        DiamondTrap dd("DI4MOND-TP");
-        dd.attack("everyone else");
+        dd.whoAmI();
 }

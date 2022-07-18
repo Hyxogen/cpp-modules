@@ -7,12 +7,15 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 }
 
 DiamondTrap::DiamondTrap(const std::string &name) :
-    ClapTrap(name), ScavTrap(name), FragTrap(name), _name(name) {
+    ClapTrap(
+        name, DIATRAP_DEFAULT_HIT_POINTS, DIATRAP_DEFAULT_ENERGY_POINTS,
+        DIATRAP_DEFAULT_ATTACK_DMG),
+    ScavTrap(), FragTrap(), _name() {
         std::cout << "DiamondTrap name constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other) :
-    ClapTrap(other), ScavTrap(other), FragTrap(other), _name(other._name) {
+    ClapTrap(other), ScavTrap(), FragTrap(), _name(other._name) {
         std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
 
@@ -21,7 +24,7 @@ DiamondTrap::~DiamondTrap() {
 }
 
 void DiamondTrap::whoAmI() const {
-        std::cout << *this << " DiamondTrap name: " << _name
+        std::cout << "DiamondTrap " << _name << " DiamondTrap name: " << _name
                   << " ClapTrap name: " << ClapTrap::_name << std::endl;
 }
 
@@ -30,5 +33,5 @@ std::string DiamondTrap::type() const {
 }
 
 void DiamondTrap::attack(const std::string &target) {
-	dynamic_cast<ScavTrap&>(*this).attack(target);
+        ScavTrap::attack(target);
 }

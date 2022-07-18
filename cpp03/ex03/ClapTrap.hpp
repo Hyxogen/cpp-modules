@@ -20,16 +20,13 @@ class ClapTrap {
 
         ~ClapTrap();
 
-        ClapTrap           &operator=(const ClapTrap &other);
-        virtual void        attack(const std::string &target);
-        void                takeDamage(unsigned int amount);
-        void                beRepaired(unsigned int amount);
-        const std::string  &name() const;
+        ClapTrap          &operator=(const ClapTrap &other);
+        virtual void       attack(const std::string &target);
+        void               takeDamage(unsigned int amount);
+        void               beRepaired(unsigned int amount);
+        const std::string &name() const;
 
     protected:
-	void attack_base(const std::string &target, cosnt std::string &type);
+        void attack_base(const std::string &target, const std::string &type);
 };
-
-std::ostream &operator<<(std::ostream &stream, const ClapTrap &clap_trap);
-
 #endif /* CLAPTRAP_HPP */

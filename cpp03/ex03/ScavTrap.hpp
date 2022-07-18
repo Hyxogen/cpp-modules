@@ -31,7 +31,7 @@ class ScavTrap : virtual public ClapTrap {
 
         ~ScavTrap();
 
-        void        attack(const std::string &target);
-        void        guardGate();
+        void attack(const std::string &target);
+        void guardGate();
 };
 #endif /* SCAVTRAP_HPP */

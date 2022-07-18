@@ -31,6 +31,6 @@ class FragTrap : virtual public ClapTrap {
 
         ~FragTrap();
 
-        void        highFivesGuys();
+        void highFivesGuys();
 };
 #endif /* FRAGTRAP_HPP */
