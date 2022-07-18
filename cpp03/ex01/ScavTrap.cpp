@@ -24,22 +24,19 @@ ScavTrap::~ScavTrap() {
         std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+void ScavTrap::attack(const std::string &target) {
+        attack_base(target, "ScavTrap");
+}
+
 void ScavTrap::guardGate() {
         if (_energy_points == 0) {
-                std::cout << *this
+                std::cout << "ScavTrap " << _name
                           << " does not have enough energy points to enter "
                              "gate keeper mode!"
                           << std::endl;
                 return;
         }
         --_energy_points;
-        std::cout << *this << " has entered gate keeping mode!" << std::endl;
-}
-
-std::string ScavTrap::type() const {
-        return "ScavTrap";
-}
-
-std::ostream &operator<<(std::ostream &stream, const ScavTrap &scav_trap) {
-        return stream << "ScavTrap " << scav_trap.name();
+        std::cout << "ScavTrap " << _name << " has entered gate keeping mode!"
+                  << std::endl;
 }

@@ -21,7 +21,8 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
+    protected:
         FragTrap();
 
     public:
@@ -30,10 +31,6 @@ class FragTrap : public ClapTrap {
 
         ~FragTrap();
 
-        void        highFivesGuys();
-        std::string type() const;
+        void highFivesGuys();
 };
-
-std::ostream &operator<<(std::ostream &stream, const FragTrap &frag_trap);
-
 #endif /* FRAGTRAP_HPP */

@@ -8,6 +8,7 @@ int main() {
         ClapTrap cp_copy(cp);
         ClapTrap other("Better CL4P-TP");
         ScavTrap cv("SC4V-TP");
+        ScavTrap cv_copy(cv);
         ScavTrap better_cv("Better SC4V-TP");
 
         cp.attack("Handsome Jack");
@@ -40,6 +41,7 @@ int main() {
         cp.attack("door");
 
         cv.attack("Better CL4P-TP");
+        cv_copy.attack("itself in confusion");
         better_cv.attack("Better CL4P-TP");
         cv.guardGate();
 

@@ -21,7 +21,8 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
+    protected:
         ScavTrap();
 
     public:
@@ -30,10 +31,7 @@ class ScavTrap : public ClapTrap {
 
         ~ScavTrap();
 
-        void        guardGate();
-        std::string type() const;
+        void attack(const std::string &target);
+        void guardGate();
 };
-
-std::ostream &operator<<(std::ostream &stream, const ScavTrap &scav_trap);
-
 #endif /* SCAVTRAP_HPP */

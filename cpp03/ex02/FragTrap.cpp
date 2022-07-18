@@ -26,20 +26,12 @@ FragTrap::~FragTrap() {
 
 void FragTrap::highFivesGuys() {
         if (_energy_points == 0) {
-                std::cout << *this
+                std::cout << "FragTrap " << _name
                           << " does not have enough energy points to ask for "
                              "high fives!"
                           << std::endl;
                 return;
         }
         --_energy_points;
-        std::cout << *this << ": \"Gimme five!\"" << std::endl;
-}
-
-std::string FragTrap::type() const {
-        return "FragTrap";
-}
-
-std::ostream &operator<<(std::ostream &stream, const FragTrap &scav_trap) {
-        return stream << "FragTrap " << scav_trap.name();
+        std::cout << "FragTrap " << _name << ": \"Gimme five!\"" << std::endl;
 }
