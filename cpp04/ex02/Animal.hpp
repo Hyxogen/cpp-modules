@@ -5,7 +5,7 @@
 
 class Animal {
     protected:
-        std::string _type;
+        const std::string type;
 
         Animal(const std::string &type);
 
@@ -15,8 +15,10 @@ class Animal {
 
         virtual ~Animal();
 
-        Animal            &operator=(const Animal &other);
         virtual void       makeSound() const = 0;
         const std::string &getType() const;
+
+private:
+        Animal            &operator=(const Animal &other);
 };
 #endif /* ANIMAL_HPP */
