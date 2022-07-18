@@ -32,6 +32,5 @@ class FragTrap : virtual public ClapTrap {
         ~FragTrap();
 
         void        highFivesGuys();
-        std::string type() const;
 };
 #endif /* FRAGTRAP_HPP */

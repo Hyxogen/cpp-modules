@@ -24,6 +24,10 @@ ScavTrap::~ScavTrap() {
         std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+void ScavTrap::attack(const std::string &target) {
+	attack_base(target, "ScavTrap");
+}
+
 void ScavTrap::guardGate() {
         if (_energy_points == 0) {
                 std::cout << *this
@@ -34,8 +38,4 @@ void ScavTrap::guardGate() {
         }
         --_energy_points;
         std::cout << *this << " has entered gate keeping mode!" << std::endl;
-}
-
-std::string ScavTrap::type() const {
-        return "ScavTrap";
 }

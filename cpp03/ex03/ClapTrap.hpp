@@ -25,7 +25,9 @@ class ClapTrap {
         void                takeDamage(unsigned int amount);
         void                beRepaired(unsigned int amount);
         const std::string  &name() const;
-        virtual std::string type() const;
+
+    protected:
+	void attack_base(const std::string &target, cosnt std::string &type);
 };
 
 std::ostream &operator<<(std::ostream &stream, const ClapTrap &clap_trap);

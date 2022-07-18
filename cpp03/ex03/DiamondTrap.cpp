@@ -30,6 +30,5 @@ std::string DiamondTrap::type() const {
 }
 
 void DiamondTrap::attack(const std::string &target) {
-        std::cout << "HERE" << std::endl;
-        ScavTrap::attack(target);
+	dynamic_cast<ScavTrap&>(*this).attack(target);
 }

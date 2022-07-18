@@ -1,6 +1,7 @@
 #include "ClapTrap.hpp"
 
 #include <iostream>
+#include <limits>
 
 #ifndef CLAPTRAP_DEFAULT_HIT_POINTS
 # define CLAPTRAP_DEFAULT_HIT_POINTS 10
@@ -63,21 +64,25 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
         return *this;
 }
 
-void ClapTrap::attack(const std::string &target) {
+void ClapTrap::attack_base(const std::string &target, const std::string &type) {
         if (_energy_points == 0) {
-                std::cout << *this
+                std::cout << type
                           << " did not have enough energy points to attack!"
                           << std::endl;
                 return;
         }
         --_energy_points;
-        std::cout << *this << " attacks " << target << ", causing "
+        std::cout << type << " attacks " << target << ", causing "
                   << _attack_dmg << " points of damage!" << std::endl;
+}
+
+void ClapTrap::attack(const std::string &target) {
+	attack_base(target, "ClapTrap");
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
         if (amount > _hit_points) {
-                std::cout << *this << " took " << _hit_points
+                std::cout << "ClapTrap " << _name << " took " << _hit_points
                           << " points of damage!" << std::endl;
                 _hit_points = 0;
         } else {
@@ -90,17 +95,17 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(const unsigned int amount) {
         if (_energy_points == 0) {
                 std::cout
-                    << *this
+                    << "ClapTrap " << _name
                     << " did not have enough energy points to repair itself!"
                     << std::endl;
         }
         --_energy_points;
         const unsigned int maxv = std::numeric_limits<unsigned int>::max();
         if (maxv - amount < _hit_points) {
-                std::cout << *this << " is now at full hp!" << std::endl;
+                std::cout << "ClapTrap " << _name << " is now at full hp!" << std::endl;
                 _hit_points = maxv;
         } else {
-                std::cout << *this << " was repaired for " << amount
+                std::cout << "ClapTrap " << _name << " was repaired for " << amount
                           << " hit points!" << std::endl;
                 _hit_points += amount;
         }
@@ -108,10 +113,6 @@ void ClapTrap::beRepaired(const unsigned int amount) {
 
 const std::string &ClapTrap::name() const {
         return _name;
-}
-
-std::string ClapTrap::type() const {
-        return "ClapTrap";
 }
 
 std::ostream &operator<<(std::ostream &stream, const ClapTrap &clap_trap) {
