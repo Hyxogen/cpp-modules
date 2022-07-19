@@ -18,7 +18,7 @@ class Animal {
         virtual void       makeSound() const = 0;
         const std::string &getType() const;
 
-private:
-        Animal            &operator=(const Animal &other);
+    private:
+        Animal &operator=(const Animal &other);
 };
 #endif /* ANIMAL_HPP */

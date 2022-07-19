@@ -18,7 +18,7 @@ Cat::~Cat() {
 Cat &Cat::operator=(const Cat &other) {
         std::cout << "Cat copy assignment operator called" << std::endl;
         if (this != &other) {
-                *_brain         = Brain(*other._brain);
+                *_brain = Brain(*other._brain);
         }
         return *this;
 }

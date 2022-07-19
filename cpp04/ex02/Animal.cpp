@@ -20,7 +20,7 @@ Animal::~Animal() {
 
 Animal &Animal::operator=(const Animal &other) {
         std::cout << "Animal copy assignment operator called" << std::endl;
-	(void) other;
+        (void) other;
         return *this;
 }
 

@@ -11,28 +11,29 @@
 #endif
 
 class Character : public ICharacter {
-	std::string _name;
-	AMateria *_slots[CHARACTER_INV_SLOTS];
+        std::string _name;
+        AMateria   *_slots[CHARACTER_INV_SLOTS];
 
-	Character();
-public:
-	Character(const std::string &name);
-	Character(const Character &other);
+        Character();
 
-	~Character();
+    public:
+        Character(const std::string &name);
+        Character(const Character &other);
 
-	Character &operator=(const Character &other);
+        ~Character();
 
-	const std::string &getName() const;
-	void equip(AMateria *materia);
-	void unequip(int idx);
-	void use(int idx, ICharacter &target);
-	AMateria *at(std::size_t idx);
+        Character &operator=(const Character &other);
 
-private:
-	void init_slots();
-	void delete_slots();
-	void copy_slots(const Character &other);
+        const std::string &getName() const;
+        void               equip(AMateria *materia);
+        void               unequip(int idx);
+        void               use(int idx, ICharacter &target);
+        AMateria          *at(std::size_t idx);
+
+    private:
+        void init_slots();
+        void delete_slots();
+        void copy_slots(const Character &other);
 };
 
 #endif /* CHARACTER_HPP */

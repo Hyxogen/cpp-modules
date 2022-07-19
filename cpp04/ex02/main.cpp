@@ -7,8 +7,8 @@
 #define TEST_SIZE 4
 
 int main() {
-        Animal       *dog  = new Dog();
-        Animal       *cat  = new Cat();
+        Animal *dog = new Dog();
+        Animal *cat = new Cat();
 
         std::cout << dog->getType() << " " << std::endl;
         std::cout << cat->getType() << " " << std::endl;
@@ -20,8 +20,8 @@ int main() {
                 static_cast<Cat *>(cat)->getBrain()->at(i) = "Zzzzzzz";
         }
 
-        Dog    dog_copy    = Dog(*static_cast<Dog *>(dog));
-        Cat    cat_copy    = Cat(*static_cast<Cat *>(cat));
+        Dog dog_copy = Dog(*static_cast<Dog *>(dog));
+        Cat cat_copy = Cat(*static_cast<Cat *>(cat));
 
         for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
                 if (dog_copy.getBrain()->at(i) != "Squirrel!") {
@@ -37,8 +37,8 @@ int main() {
         dog_copy.makeSound();
         cat_copy.makeSound();
 
-        dog_copy    = *static_cast<Dog *>(dog);
-        cat_copy    = *static_cast<Cat *>(cat);
+        dog_copy = *static_cast<Dog *>(dog);
+        cat_copy = *static_cast<Cat *>(cat);
 
         for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
                 if (dog_copy.getBrain()->at(i) != "Squirrel!") {
