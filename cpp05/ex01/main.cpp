@@ -85,6 +85,7 @@ void form_tests() {
         ASSERT_NOTHROW(simple.beSigned(super));
         ASSERT_EQUAL(simple.isSigned(), true);
 
+	stanley.signForm(simple);
         std::cout << simple << std::endl;
         std::cout << other << std::endl;
 }
