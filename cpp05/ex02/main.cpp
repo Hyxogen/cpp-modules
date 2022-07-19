@@ -115,6 +115,12 @@ void shrubbery_tests() {
 
         ASSERT_NOTHROW(stanley.promote());
         ASSERT_NOTHROW(shub.execute(stanley));
+
+	ShrubberyCreationForm copy("temporary");
+	copy = shub;
+        ASSERT_EQUAL(copy.getTarget(), "something");
+        ASSERT_EQUAL(copy.getMinSignGrade(), 145);
+        ASSERT_EQUAL(copy.getMinExecGrade(), 137);
 }
 
 void robotomy_tests() {
@@ -139,6 +145,12 @@ void robotomy_tests() {
 
         ASSERT_NOTHROW(stanley.executeForm(rob));
         ASSERT_NOTHROW(super.executeForm(rob));
+
+	RobotomyRequestForm copy("temporary");
+	copy = rob;
+        ASSERT_EQUAL(copy.getTarget(), "stanley");
+        ASSERT_EQUAL(copy.getMinSignGrade(), 72);
+        ASSERT_EQUAL(copy.getMinExecGrade(), 45);
 }
 
 void president_tests() {
@@ -163,6 +175,12 @@ void president_tests() {
 
         ASSERT_NOTHROW(stanley.executeForm(pres));
         ASSERT_NOTHROW(super.executeForm(pres));
+
+	PresidentialPardonForm copy("temporary");
+	copy = pres;
+        ASSERT_EQUAL(copy.getTarget(), "stanley");
+        ASSERT_EQUAL(copy.getMinSignGrade(), 25);
+        ASSERT_EQUAL(copy.getMinExecGrade(), 5);
 }
 
 int main() {
