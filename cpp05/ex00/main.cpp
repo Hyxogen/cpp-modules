@@ -33,4 +33,11 @@ int main() {
 	ASSERT_EQUAL(br.getGrade(), MIN_GRADE - 1);
 
 	std::cout << br << std::endl;
+
+	Bureaucrat other("other", MAX_GRADE);
+	ASSERT_THROW(other.promote(), Bureaucrat::GradeTooHighException);
+	ASSERT_NOTHROW(other.demote());
+	ASSERT_EQUAL(other.getGrade(), MAX_GRADE + 1);
+
+	std::cout << other << std::endl;
 }
