@@ -44,7 +44,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) {
 }
 
 std::ostream &operator<<(std::ostream &stream, const Bureaucrat &bureaucrat) {
-	return stream << bureaucrat.getName() << ", bureaucraft grade " << bureaucrat.getGrade() << "." << std::endl;
+	return stream << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "." << std::endl;
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &what_arg) : logic_error(what_arg) { }
