@@ -1,6 +1,6 @@
 TARGET		:= test
 
-SOURCES		:= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+SOURCES		:= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 

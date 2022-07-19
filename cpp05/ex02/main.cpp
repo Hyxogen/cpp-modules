@@ -5,6 +5,7 @@
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 #define ASSERT_THROW(x, type)                                                  \
  try {                                                                         \
@@ -141,10 +142,35 @@ void robotomy_tests() {
 	ASSERT_NOTHROW(super.executeForm(rob));
 }
 
+void president_tests() {
+	PresidentialPardonForm pres("stanley");
+	ASSERT_EQUAL(pres.getTarget(), "stanley");
+	ASSERT_EQUAL(pres.getMinSignGrade(), 25);
+	ASSERT_EQUAL(pres.getMinExecGrade(), 5);
+
+        Bureaucrat super("super", MAX_GRADE);
+        Bureaucrat stanley("stanley", 6);
+
+	ASSERT_THROW(pres.execute(super), Form::NotSignedException);
+	ASSERT_NOTHROW(super.executeForm(pres));
+	ASSERT_NOTHROW(pres.beSigned(super));
+
+	ASSERT_THROW(pres.execute(stanley), Form::GradeTooLowException);
+	ASSERT_NOTHROW(stanley.executeForm(pres));
+	ASSERT_NOTHROW(pres.execute(super));
+
+	ASSERT_NOTHROW(stanley.promote());
+	ASSERT_NOTHROW(pres.execute(stanley));
+
+	ASSERT_NOTHROW(stanley.executeForm(pres));
+	ASSERT_NOTHROW(super.executeForm(pres));
+}
+
 int main() {
         bcrat_tests();
         form_tests();
 	shrubbery_tests();
 	robotomy_tests();
+	president_tests();
         return 0;
 }
