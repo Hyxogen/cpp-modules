@@ -110,11 +110,17 @@ void materia_tests() {
 
 	Character c("a poor fool");
 	Ice ice;
+	Ice ice_cpy;
 
 	std::cout << "Type should be ice: " << ice.getType() << std::endl;
 	std::cout << "Use ice" << std::endl;
 
 	ice.use(c);
+
+	ice_cpy = ice;
+	std::cout << "Type should be ice: " << ice_cpy.getType() << std::endl;
+	std::cout << "Use ice_cpy" << std::endl;
+	ice_cpy.use(c);
 
 	AMateria *copy = ice.clone();
 	if (dynamic_cast<Ice*>(copy) == NULL) {
@@ -126,11 +132,17 @@ void materia_tests() {
 	delete copy;
 
 	Cure cure;
+	Cure cure_cpy;
 
 	std::cout << "Type should be cure: " << cure.getType() << std::endl;
 	std::cout << "Use cure" << std::endl;
 
 	cure.use(c);
+
+	cure_cpy = cure;
+	std::cout << "Type should be cure: " << cure_cpy.getType() << std::endl;
+	std::cout << "Use cure_cpy" << std::endl;
+	cure_cpy.use(c);
 
 	copy = cure.clone();
 	if (dynamic_cast<Cure*>(copy) == NULL) {
