@@ -1,11 +1,11 @@
 TARGET		:= test
 
-SOURCES		:= main.cpp Character.cpp Ice.cpp Cure.cpp MateriaSource.cpp
+SOURCES		:= main.cpp Character.cpp AMateria.cpp Ice.cpp Cure.cpp MateriaSource.cpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
 CXX		:= clang++
-CXX_FLAGS	:= -I. -std=c++98 -Wall -Wextra -Werror -Wshadow -pedantic -O3 -g0 -MMD
+CXX_FLAGS	:= -I. -std=c++98 -Wall -Wextra -Werror -Wshadow -pedantic -Og -g3 -fsanitize=address -MMD
 
 SILENT		:= @
 ifndef verbose

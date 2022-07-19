@@ -36,7 +36,7 @@ const std::string &Character::getName() const {
 void Character::equip(AMateria *materia) {
 	for (size_t i = 0; i < CHARACTER_INV_SLOTS; ++i) {
 		if (_slots[i] == NULL) {
-			*_slots[i] = *materia;
+			_slots[i] = materia->clone();
 			break;
 		}
 	}
@@ -76,6 +76,11 @@ void Character::delete_slots() {
 
 void Character::copy_slots(const Character &other) {
 	for (size_t i = 0; i < CHARACTER_INV_SLOTS; ++i) {
-		_slots[i] = other._slots[i]->clone();
+		AMateria *slot = other._slots[i];
+		if (slot != NULL) {
+			_slots[i] = slot->clone();
+		} else {
+			_slots[i] = NULL;
+		}
 	}
 }

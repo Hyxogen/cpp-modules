@@ -7,8 +7,10 @@
 class AMateria {
 	AMateria();
 
+protected:
+	std::string _type;
+
 public:
-	const std::string type;
 
 	AMateria(const std::string &type);
 	AMateria(const AMateria &other);
