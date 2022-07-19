@@ -35,8 +35,8 @@ class Form {
 
         virtual ~Form();
 
-        void beSigned(const Bureaucrat &bcrat);
-	virtual void execute(const Bureaucrat &bcrat) const;
+        void         beSigned(const Bureaucrat &bcrat);
+        virtual void execute(const Bureaucrat &bcrat) const;
 
         const std::string &getName() const;
         bool               isSigned() const;

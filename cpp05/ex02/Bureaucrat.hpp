@@ -40,7 +40,7 @@ class Bureaucrat {
         void promote();
         void demote();
         void signForm(Form &form) const;
-	void executeForm(const Form &form) const;
+        void executeForm(const Form &form) const;
 
         int                getGrade() const;
         const std::string &getName() const;

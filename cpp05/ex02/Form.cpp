@@ -48,12 +48,12 @@ void Form::beSigned(const Bureaucrat &bcrat) {
 }
 
 void Form::execute(const Bureaucrat &bcrat) const {
-	if (bcrat.getGrade() > _min_exec_grade) {
-		throw GradeTooLowException("grade too low in form execute");
-	}
-	if (_signed == false) {
-		throw NotSignedException("form not signed in form execute");
-	}
+        if (bcrat.getGrade() > _min_exec_grade) {
+                throw GradeTooLowException("grade too low in form execute");
+        }
+        if (_signed == false) {
+                throw NotSignedException("form not signed in form execute");
+        }
 }
 
 const std::string &Form::getName() const {
@@ -85,4 +85,5 @@ Form::GradeTooHighException::GradeTooHighException(
 Form::GradeTooLowException::GradeTooLowException(const std::string &what_arg) :
     logic_error(what_arg) { }
 
-Form::NotSignedException::NotSignedException(const std::string &what_arg) : logic_error(what_arg) { }
+Form::NotSignedException::NotSignedException(const std::string &what_arg) :
+    logic_error(what_arg) { }
