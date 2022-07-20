@@ -26,6 +26,7 @@
  }
 
 #define ASSERT_EQUAL(a, b) assert((a == b) && "Not equal")
+#define ASSERT_NEQUAL(a, b) assert((a != b) && "Not equal")
 
 void bcrat_tests() {
         ASSERT_THROW(
@@ -100,6 +101,7 @@ void shrubbery_tests() {
         ASSERT_EQUAL(shub.getTarget(), "something");
         ASSERT_EQUAL(shub.getMinSignGrade(), 145);
         ASSERT_EQUAL(shub.getMinExecGrade(), 137);
+	ASSERT_EQUAL(shub.getName(), "ShrubberyCreationForm");
 
         Bureaucrat super("super", MAX_GRADE);
         Bureaucrat stanley("stanley", 138);
@@ -128,6 +130,7 @@ void robotomy_tests() {
         ASSERT_EQUAL(rob.getTarget(), "stanley");
         ASSERT_EQUAL(rob.getMinSignGrade(), 72);
         ASSERT_EQUAL(rob.getMinExecGrade(), 45);
+	ASSERT_EQUAL(rob.getName(), "RobotomyRequestForm");
 
         Bureaucrat super("super", MAX_GRADE);
         Bureaucrat stanley("stanley", 46);
@@ -158,6 +161,7 @@ void president_tests() {
         ASSERT_EQUAL(pres.getTarget(), "stanley");
         ASSERT_EQUAL(pres.getMinSignGrade(), 25);
         ASSERT_EQUAL(pres.getMinExecGrade(), 5);
+	ASSERT_EQUAL(pres.getName(), "PresidentialPardonForm");
 
         Bureaucrat super("super", MAX_GRADE);
         Bureaucrat stanley("stanley", 6);
