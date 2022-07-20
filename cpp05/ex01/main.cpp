@@ -8,9 +8,7 @@
  try {                                                                         \
   x;                                                                           \
   assert(0 && "Did not throw");                                                \
- } catch (const type &ex) {                                                    \
-  (void) ex;                                                                   \
- }
+ } catch (const type &ex) { (void) ex; }
 
 #define ASSERT_NOTHROW(x)                                                      \
  try {                                                                         \
