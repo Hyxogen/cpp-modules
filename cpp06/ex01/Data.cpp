@@ -15,3 +15,6 @@ Data &Data::operator=(const Data &other) {
 	return *this;
 }
 
+const std::string &Data::txt() const {
+	return _txt;
+}

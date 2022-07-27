@@ -13,6 +13,8 @@ public:
 	~Data();
  
 	Data &operator=(const Data &other);
+
+	const std::string &txt() const;
 };
 #endif /* DATA_HPP */
 
