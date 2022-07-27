@@ -11,7 +11,9 @@
  try {                                                                         \
   x;                                                                           \
   assert(0 && "Did not throw");                                                \
- } catch (const type &ex) { (void) ex; } catch (const std::exception &ex) {    \
+ } catch (const type &ex) {                                                    \
+  (void) ex;                                                                   \
+ } catch (const std::exception &ex) {                                          \
   assert(0 && "Threw something else");                                         \
  }
 
