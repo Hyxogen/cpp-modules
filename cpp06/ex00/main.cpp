@@ -16,10 +16,10 @@ void print_error() {
 template<typename Source, typename Target>
 bool can_cast_integral_to_integral(const Source &source) {
         typedef std::numeric_limits<Target> target_limits;
-        long                                l = static_cast<long>(source);
+        long                                val = static_cast<long>(source);
         return (
-            static_cast<long>(target_limits::lowest()) <= l
-            && l <= static_cast<long>(target_limits::max()));
+            static_cast<long>(target_limits::lowest()) <= val
+            && val <= static_cast<long>(target_limits::max()));
 }
 
 template<typename Source, typename Target>
@@ -39,93 +39,92 @@ bool can_cast_float_to_integral(const Source &source) {
                 static_cast<long>(source)));
 }
 
-void print_char(int i) {
+void print_char(int val) {
         std::cout << TypeName<char>::name() << ": ";
-        if (i < 0 || i > std::numeric_limits<char>::max()) {
+        if (val < 0 || val > std::numeric_limits<char>::max()) {
                 std::cout << "impossible" << std::endl;
-        } else if (!std::isprint(i)) {
+        } else if (std::isprint(val) == 0) {
                 std::cout << "Non displayable" << std::endl;
         } else {
-                std::cout << static_cast<char>(i) << std::endl;
+                std::cout << static_cast<char>(val) << std::endl;
         }
 }
 
-void print_char(long l) {
-        if (!can_cast_integral_to_integral<long, char>(l)) {
+void print_char(long val) {
+        if (!can_cast_integral_to_integral<long, char>(val)) {
                 std::cout << TypeName<char>::name() << ": impossible"
                           << std::endl;
         } else {
-                print_char(static_cast<int>(l));
+                print_char(static_cast<int>(val));
         }
 }
 
-void print_char(double d) {
-        if (!can_cast_float_to_integral<double, int>(d)) {
+void print_char(double val) {
+        if (!can_cast_float_to_integral<double, int>(val)) {
                 std::cout << TypeName<char>::name() << ": impossible"
                           << std::endl;
         } else {
-                print_char(static_cast<long>(d));
+                print_char(static_cast<long>(val));
         }
 }
 
-void print_int(int i) {
-        std::cout << TypeName<int>::name() << ": " << i << std::endl;
+void print_int(int val) {
+        std::cout << TypeName<int>::name() << ": " << val << std::endl;
 }
 
-void print_int(long l) {
-        if (!can_cast_integral_to_integral<long, int>(l)) {
+void print_int(long val) {
+        if (!can_cast_integral_to_integral<long, int>(val)) {
                 std::cout << TypeName<int>::name() << ": impossible"
                           << std::endl;
         } else {
-                print_int(static_cast<int>(l));
+                print_int(static_cast<int>(val));
         }
 }
 
-void print_int(double d) {
-        if (!can_cast_float_to_integral<double, int>(d)) {
+void print_int(double val) {
+        if (!can_cast_float_to_integral<double, int>(val)) {
                 std::cout << TypeName<int>::name() << ": impossible"
                           << std::endl;
         } else {
-                print_int(static_cast<long>(d));
+                print_int(static_cast<long>(val));
         }
 }
 
-void print_float(float f) {
-        std::cout << TypeName<float>::name() << ": " << f << "f" << std::endl;
+void print_float(float val) {
+        std::cout << TypeName<float>::name() << ": " << val << "f" << std::endl;
 }
 
-void print_float(double d) {
+void print_float(double val) {
         typedef std::numeric_limits<float> float_limits;
-        if (std::abs(d) == std::numeric_limits<double>::infinity() || d != d) {
-                print_float(static_cast<float>(d));
-        } else if (
-            static_cast<double>(float_limits::lowest()) <= d
-            && d <= static_cast<double>(float_limits::max())) {
-                print_float(static_cast<float>(d));
+        if (std::abs(val) == std::numeric_limits<double>::infinity()
+            || val != val
+            || (static_cast<double>(float_limits::lowest()) <= val
+                && val <= static_cast<double>(float_limits::max()))) {
+                print_float(static_cast<float>(val));
         } else {
                 std::cout << TypeName<float>::name() << ": impossible"
                           << std::endl;
         }
 }
 
-void print_float(int i) {
-        print_float(static_cast<float>(i));
+void print_float(int val) {
+        print_float(static_cast<float>(val));
 }
 
-void print_double(double d) {
-        std::cout << TypeName<double>::name() << ": " << d << std::endl;
+void print_double(double val) {
+        std::cout << TypeName<double>::name() << ": " << val << std::endl;
 }
 
-void print_double(int i) {
-        print_double(static_cast<double>(i));
+void print_double(int val) {
+        print_double(static_cast<double>(val));
 }
 
 template<typename T>
-void print_conversions(T t) {
-        print_char(t);
-        print_int(t);
-        print_float(t);
-        print_double(t);
+void print_conversions(T val) {
+        print_char(val);
+        print_int(val);
+        print_float(val);
+        print_double(val);
 }
 
 template<typename Target>
@@ -134,7 +133,7 @@ bool try_convert(const std::string &source, Target &target);
 template<>
 bool try_convert<long>(const std::string &source, long &target) {
         std::ptrdiff_t                    pos   = 0;
-        char                             *end   = 0;
+        char                             *end   = NULL;
         const char *const                 begin = source.c_str();
         typedef std::numeric_limits<long> target_limits;
 
@@ -151,20 +150,21 @@ bool try_convert<long>(const std::string &source, long &target) {
 
 template<>
 bool try_convert<int>(const std::string &source, int &target) {
-        long l = as_type<long>(source);
-        if (!can_cast_integral_to_integral<long, int>(l)) {
+        long val = as_type<long>(source);
+        if (!can_cast_integral_to_integral<long, int>(val)) {
                 return false;
         }
-        target = static_cast<int>(l);
+        target = static_cast<int>(val);
         return true;
 }
 
 template<>
 bool try_convert<char>(const std::string &source, char &target) {
-        if (source.length() != 1)
+        if (source.length() != 1) {
                 return false;
+        }
         target = source.at(0);
-        return std::isprint(static_cast<int>(target));
+        return std::isprint(static_cast<int>(target)) != 0;
 }
 
 template<>
@@ -181,7 +181,7 @@ bool try_convert<float>(const std::string &source, float &target) {
                 return true;
         }
         std::ptrdiff_t    pos   = 0;
-        char             *end   = 0;
+        char             *end   = NULL;
         const char *const begin = source.c_str();
 
         target = std::strtof(begin, &end);
@@ -210,7 +210,7 @@ bool try_convert<double>(const std::string &source, double &target) {
                 return true;
         }
         std::ptrdiff_t    pos   = 0;
-        char             *end   = 0;
+        char             *end   = NULL;
         const char *const begin = source.c_str();
 
         target = std::strtod(begin, &end);
@@ -237,8 +237,8 @@ T as_type(const std::string &str) {
 template<typename T>
 bool print_x_conversions(const std::string &str) {
         try {
-                T t = as_type<T>(str);
-                print_conversions(t);
+                T val = as_type<T>(str);
+                print_conversions(val);
                 return true;
         } catch (const std::exception &ex) {
                 return false;
@@ -246,14 +246,18 @@ bool print_x_conversions(const std::string &str) {
 }
 
 void print_conversions(const std::string &str) {
-        if (print_x_conversions<int>(str))
+        if (print_x_conversions<int>(str)) {
                 return;
-        if (print_x_conversions<char>(str))
+        }
+        if (print_x_conversions<char>(str)) {
                 return;
-        if (print_x_conversions<double>(str))
+        }
+        if (print_x_conversions<double>(str)) {
                 return;
-        if (print_x_conversions<float>(str))
+        }
+        if (print_x_conversions<float>(str)) {
                 return;
+        }
         print_error();
 }
 

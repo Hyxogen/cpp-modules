@@ -1,13 +1,15 @@
 #ifndef TYPENAME_HPP
 #define TYPENAME_HPP
 
+#include <string>
+
 template<class T>
 struct TypeName;
 
 #define DEFINE_TYPE_NAME(type)                                                 \
  template<>                                                                    \
  struct TypeName<type> {                                                       \
-  static const std::string name() {                                            \
+  static std::string name() {                                                  \
    return #type;                                                               \
   }                                                                            \
  };
