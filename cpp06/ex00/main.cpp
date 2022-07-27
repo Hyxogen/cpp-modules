@@ -2,6 +2,8 @@
 #include <limits>
 #include <stdexcept>
 
+#include "TypeName.hpp"
+
 static const int BASE10_RADIX = 10;
 
 template<typename T>
@@ -12,7 +14,7 @@ void print_error() {
 }
 
 template<typename Source, typename Target>
-bool can_cast_integral_without_overflow(const Source &source) {
+bool can_cast_integral_to_integral(const Source &source) {
         typedef std::numeric_limits<Target> target_limits;
         long                                l = static_cast<long>(source);
         return (
@@ -20,8 +22,25 @@ bool can_cast_integral_without_overflow(const Source &source) {
             && l <= static_cast<long>(target_limits::max()));
 }
 
+template<typename Source, typename Target>
+bool can_cast_float_to_integral(const Source &source) {
+        if (source != source) {
+                return false;
+        }
+        typedef std::numeric_limits<long> long_limits;
+        const bool                        can_cast_to_long =
+            static_cast<double>(long_limits::lowest())
+                <= static_cast<double>(source)
+            && static_cast<double>(source)
+                   <= -static_cast<double>(long_limits::lowest());
+        return (
+            can_cast_to_long
+            && can_cast_integral_to_integral<long, Target>(
+                static_cast<long>(source)));
+}
+
 void print_char(int i) {
-        std::cout << "char: ";
+        std::cout << TypeName<char>::name() << ": ";
         if (i < 0 || i > std::numeric_limits<char>::max()) {
                 std::cout << "impossible" << std::endl;
         } else if (!std::isprint(i)) {
@@ -32,59 +51,60 @@ void print_char(int i) {
 }
 
 void print_char(long l) {
-        if (!can_cast_integral_without_overflow<long, char>(l)) {
-                std::cout << "char: impossible" << std::endl;
+        if (!can_cast_integral_to_integral<long, char>(l)) {
+                std::cout << TypeName<char>::name() << ": impossible"
+                          << std::endl;
         } else {
                 print_char(static_cast<int>(l));
         }
 }
 
 void print_char(double d) {
-        typedef std::numeric_limits<long> long_limits;
-        if (d != d || static_cast<double>(long_limits::lowest()) > d
-            || d > -static_cast<double>(long_limits::lowest())) {
-                std::cout << "char: impossible" << std::endl;
+        if (!can_cast_float_to_integral<double, int>(d)) {
+                std::cout << TypeName<char>::name() << ": impossible"
+                          << std::endl;
         } else {
                 print_char(static_cast<long>(d));
         }
 }
 
 void print_int(int i) {
-        std::cout << "int: " << i << std::endl;
+        std::cout << TypeName<int>::name() << ": " << i << std::endl;
 }
 
 void print_int(long l) {
-        if (!can_cast_integral_without_overflow<long, int>(l)) {
-                std::cout << "int: impossible" << std::endl;
+        if (!can_cast_integral_to_integral<long, int>(l)) {
+                std::cout << TypeName<int>::name() << ": impossible"
+                          << std::endl;
         } else {
                 print_int(static_cast<int>(l));
         }
 }
 
 void print_int(double d) {
-        typedef std::numeric_limits<long> long_limits;
-        if (d != d || static_cast<double>(long_limits::lowest()) > d
-            || d > -static_cast<double>(long_limits::lowest())) {
-                std::cout << "int: impossible" << std::endl;
+        if (!can_cast_float_to_integral<double, int>(d)) {
+                std::cout << TypeName<int>::name() << ": impossible"
+                          << std::endl;
         } else {
                 print_int(static_cast<long>(d));
         }
 }
 
 void print_float(float f) {
-        std::cout << "float: " << f << "f" << std::endl;
+        std::cout << TypeName<float>::name() << ": " << f << "f" << std::endl;
 }
 
 void print_float(double d) {
         typedef std::numeric_limits<float> float_limits;
-        if (std::abs(d) == std::numeric_limits<double>::infinity()) {
+        if (std::abs(d) == std::numeric_limits<double>::infinity() || d != d) {
                 print_float(static_cast<float>(d));
         } else if (
             static_cast<double>(float_limits::lowest()) <= d
             && d <= static_cast<double>(float_limits::max())) {
                 print_float(static_cast<float>(d));
         } else {
-                std::cout << "float: impossible" << std::endl;
+                std::cout << TypeName<float>::name() << ": impossible"
+                          << std::endl;
         }
 }
 
@@ -93,7 +113,7 @@ void print_float(int i) {
 }
 
 void print_double(double d) {
-        std::cout << "double: " << d << std::endl;
+        std::cout << TypeName<double>::name() << ": " << d << std::endl;
 }
 
 void print_double(int i) {
@@ -132,7 +152,7 @@ bool try_convert<long>(const std::string &source, long &target) {
 template<>
 bool try_convert<int>(const std::string &source, int &target) {
         long l = as_type<long>(source);
-        if (!can_cast_integral_without_overflow<long, int>(l)) {
+        if (!can_cast_integral_to_integral<long, int>(l)) {
                 return false;
         }
         target = static_cast<int>(l);
@@ -230,9 +250,9 @@ void print_conversions(const std::string &str) {
                 return;
         if (print_x_conversions<char>(str))
                 return;
-        if (print_x_conversions<float>(str))
-                return;
         if (print_x_conversions<double>(str))
+                return;
+        if (print_x_conversions<float>(str))
                 return;
         print_error();
 }
