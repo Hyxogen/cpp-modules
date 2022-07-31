@@ -1,0 +1,24 @@
+[
+ {
+  "directory": "/home/daan/src/CPP/cpp08/ex00",
+  "arguments": [
+   "g++",
+   "-I.",
+   "-std=c++11",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-Wconversion",
+   "-pedantic",
+   "-O0",
+   "-g3",
+   "-fsanitize=address,undefined",
+   "-MMD",
+   "-o",
+   "main.cpp.o",
+   "-c",
+   "main.cpp"
+  ],
+  "file": "main.cpp"
+ }
+]
