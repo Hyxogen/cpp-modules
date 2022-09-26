@@ -66,11 +66,11 @@ std::ostream &Contact::write(std::ostream &os) const {
 }
 
 std::istream &Contact::parse(std::istream &is) {
-        _first_name = get_line(is, "First name: ");
-        _last_name  = get_line(is, "Last name: ");
-        _nickname   = get_line(is, "Nickname: ");
-        _phone_num  = get_line(is, "Phone number: ");
-        _secret     = get_line(is, "Darkest secret: ");
+        _first_name = get_line_not_empty(is, "First name: ");
+        _last_name  = get_line_not_empty(is, "Last name: ");
+        _nickname   = get_line_not_empty(is, "Nickname: ");
+        _phone_num  = get_line_not_empty(is, "Phone number: ");
+        _secret     = get_line_not_empty(is, "Darkest secret: ");
         return is;
 }
 

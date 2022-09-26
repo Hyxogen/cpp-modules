@@ -13,6 +13,13 @@ std::string get_line(std::istream &is, const std::string &prompt) {
         return line;
 }
 
+std::string get_line_not_empty(std::istream &is, const std::string &prompt) {
+        std::string line("");
+	while ((line = get_line(is, prompt)).empty())
+		continue;
+	return line;
+}
+
 std::string truncate(std::string str, std::size_t width, char ellips) {
         if (str.length() <= width) {
                 return str;
