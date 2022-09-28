@@ -2,11 +2,6 @@
 
 #include <iostream>
 
-const Harl::info_proc Harl::procs[HARL_INFOPROC_COUNT] = {
-        &Harl::unknown, &Harl::unknown, &Harl::error,   &Harl::unknown,
-        &Harl::info,    &Harl::unknown, &Harl::warning, &Harl::debug
-};
-
 Harl::Harl() { }
 
 void Harl::debug() const {
@@ -42,17 +37,23 @@ void Harl::unknown() const {
         std::cout << "I CAN'T HEAR WHAT YOU'RE SAYING!" << std::endl;
 }
 
-void Harl::complain(const std::string &level) const {
-        info_proc proc = procs[hash(level) % HARL_INFOPROC_COUNT];
-        (this->*(proc))();
+Harl::info_proc Harl::get_info_proc(const std::string &level) const {
+        static const Harl::entry entries[4] = {
+                {  "DEBUG",   &Harl::debug},
+                {   "INFO",    &Harl::info},
+                {"WARNING", &Harl::warning},
+                {  "ERROR",   &Harl::error}
+        };
+        for (std::size_t idx = 0; idx < sizeof(entries) / sizeof(entries[0]);
+             idx++) {
+                if (entries[idx].level == level) {
+                        return entries[idx].proc;
+                }
+        }
+        return &Harl::unknown;
 }
 
-std::size_t hash(const std::string &str) {
-        std::size_t result = 0;
-
-        for (std::string::const_iterator it = str.begin(); it != str.end();
-             ++it) {
-                result += static_cast<int>(*it);
-        }
-        return result;
+void Harl::complain(const std::string &level) const {
+        const Harl::info_proc proc = get_info_proc(level);
+        (this->*(proc))();
 }
