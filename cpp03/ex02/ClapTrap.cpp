@@ -117,3 +117,15 @@ void ClapTrap::beRepaired(const unsigned int amount) {
 const std::string &ClapTrap::name() const {
         return _name;
 }
+
+unsigned int &ClapTrap::hit_points() {
+	return _hit_points;
+}
+
+unsigned int &ClapTrap::energy_points() {
+	return _energy_points;
+}
+
+unsigned int &ClapTrap::attack_dmg() {
+	return _attack_dmg;
+}
