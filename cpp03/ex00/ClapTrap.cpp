@@ -99,6 +99,7 @@ void ClapTrap::beRepaired(const unsigned int amount) {
                     << "ClapTrap " << _name
                     << " did not have enough energy points to repair itself!"
                     << std::endl;
+		return;
         }
         --_energy_points;
         const unsigned int maxv = std::numeric_limits<unsigned int>::max();
