@@ -5,10 +5,10 @@
 #include <string>
 
 class ClapTrap {
-    protected:
         std::string  _name;
         unsigned int _hit_points, _energy_points, _attack_dmg;
 
+    protected:
         ClapTrap();
         ClapTrap(
             const std::string &name, unsigned int hit_points,
