@@ -3,8 +3,6 @@
 
 #include <string>
 
-#define HARL_INFOPROC_COUNT 8
-
 class Harl {
         typedef void (Harl::*info_proc)() const;
 
