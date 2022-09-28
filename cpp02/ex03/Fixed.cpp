@@ -1,7 +1,5 @@
 #include "Fixed.hpp"
 
-#include <ostream>
-
 const int Fixed::POINT = 8;
 
 Fixed::Fixed() : _data(0) { }
