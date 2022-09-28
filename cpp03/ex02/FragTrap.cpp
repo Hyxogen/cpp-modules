@@ -25,13 +25,13 @@ FragTrap::~FragTrap() {
 }
 
 void FragTrap::highFivesGuys() {
-        if (_energy_points == 0) {
-                std::cout << "FragTrap " << _name
+        if (energy_points() == 0) {
+                std::cout << "FragTrap " << name()
                           << " does not have enough energy points to ask for "
                              "high fives!"
                           << std::endl;
                 return;
         }
-        --_energy_points;
-        std::cout << "FragTrap " << _name << ": \"Gimme five!\"" << std::endl;
+        energy_points() -= 1;
+        std::cout << "FragTrap " << name() << ": \"Gimme five!\"" << std::endl;
 }
