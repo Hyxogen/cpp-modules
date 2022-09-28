@@ -4,7 +4,7 @@ SOURCES		:= main.cpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX		:= clang++
+CXX		:= c++
 CXX_FLAGS	:= -I. -std=c++11 -Wall -Wextra -Werror -Wconversion -pedantic -O0 -g3 -fsanitize=address,undefined -MMD
 
 SILENT		:= @

@@ -4,7 +4,7 @@ SOURCES		:= main.cpp Zombie.cpp zombieHorde.cpp
 HEADERS		:= Zombie.hpp
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX			:= clang++
+CXX			:= c++
 CXX_FLAGS	:= -std=c++98 -Wall -Wextra -Werror -pedantic -O3 -g0
 
 SILENT		:= @

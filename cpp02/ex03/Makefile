@@ -4,7 +4,7 @@ SOURCES		:= main.cpp Fixed.cpp Point.cpp bsp.cpp
 HEADERS		:= Fixed.hpp
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX			:= clang++
+CXX			:= c++
 CXX_FLAGS	:= -std=c++98 -Wall -Wextra -Werror -pedantic -O0 -g3
 
 SILENT		:= @

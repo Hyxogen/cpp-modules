@@ -4,7 +4,7 @@ SOURCES		:= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyR
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX		:= clang++
+CXX		:= c++
 CXX_FLAGS	:= -I. -std=c++98 -Wall -Wextra -Werror -Wshadow -pedantic -Og -g3 -fsanitize=address -MMD
 
 SILENT		:= @

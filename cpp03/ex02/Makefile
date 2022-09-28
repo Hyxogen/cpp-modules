@@ -5,7 +5,7 @@ HEADERS		:= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX		:= clang++
+CXX		:= c++
 CXX_FLAGS	:= -I. -std=c++98 -Wall -Wextra -Werror -Wshadow -pedantic -O3 -g0 -MMD
 
 SILENT		:= @

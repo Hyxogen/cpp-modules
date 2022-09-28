@@ -4,7 +4,7 @@ SOURCES		:= Main.cpp PhoneBook.cpp Contact.cpp Util.cpp
 HEADERS		:= PhoneBook.h Contact.h Util.h TableFmt.h Lexical_Cast.h
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX			:= clang++
+CXX			:= c++
 CXX_FLAGS	:= -std=c++98 -Wall -Wextra -Werror -pedantic -O3 -g0
 
 SILENT		:= @
