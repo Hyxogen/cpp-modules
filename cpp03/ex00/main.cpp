@@ -35,4 +35,5 @@ int main() {
         cp.attack("door");
         cp.attack("door");
         cp.attack("door");
+	cp.beRepaired(500);
 }
