@@ -27,6 +27,10 @@ class ClapTrap {
         const std::string &name() const;
 
     protected:
+	unsigned int &hit_points();
+	unsigned int &energy_points();
+	unsigned int &attack_dmg();
+
         void attack_base(const std::string &target, const std::string &type);
 };
 #endif /* CLAPTRAP_HPP */

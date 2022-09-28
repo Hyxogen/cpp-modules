@@ -29,14 +29,14 @@ void ScavTrap::attack(const std::string &target) {
 }
 
 void ScavTrap::guardGate() {
-        if (_energy_points == 0) {
-                std::cout << "ScavTrap " << _name
+        if (energy_points() == 0) {
+                std::cout << "ScavTrap " << name()
                           << " does not have enough energy points to enter "
                              "gate keeper mode!"
                           << std::endl;
                 return;
         }
-        --_energy_points;
-        std::cout << "ScavTrap " << _name << " has entered gate keeping mode!"
+        energy_points() -= 1;
+        std::cout << "ScavTrap " << name() << " has entered gate keeping mode!"
                   << std::endl;
 }
