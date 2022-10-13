@@ -47,8 +47,10 @@ int main() {
         wrong_cat_copy.makeSound();
         wrong_animal_copy.makeSound();
 
+	delete wrong_meta;
         delete meta;
         delete j;
         delete i;
+	delete wrong_i;
         return 0;
 }
