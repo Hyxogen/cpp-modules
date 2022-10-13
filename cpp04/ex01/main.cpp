@@ -27,6 +27,11 @@ int main() {
         Cat    cat_copy    = Cat(*static_cast<Cat *>(cat));
 
         for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
+                static_cast<Dog *>(dog)->getBrain()->at(i) = "Zap";
+                static_cast<Cat *>(cat)->getBrain()->at(i) = "Zap";
+        }
+
+        for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
                 if (dog_copy.getBrain()->at(i) != "Squirrel!") {
                         std::cout << "did not do a deep copy for dog!"
                                   << std::endl;
@@ -41,9 +46,19 @@ int main() {
         cat_copy.makeSound();
         animal_copy.makeSound();
 
+        for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
+                static_cast<Dog *>(dog)->getBrain()->at(i) = "Squirrel!";
+                static_cast<Cat *>(cat)->getBrain()->at(i) = "Zzzzzzz";
+        }
+
         dog_copy    = *static_cast<Dog *>(dog);
         cat_copy    = *static_cast<Cat *>(cat);
         animal_copy = *meta;
+
+        for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
+                static_cast<Dog *>(dog)->getBrain()->at(i) = "Zap";
+                static_cast<Cat *>(cat)->getBrain()->at(i) = "Zap";
+        }
 
         for (int i = 0; i < BRAIN_IDEA_SIZE; ++i) {
                 if (dog_copy.getBrain()->at(i) != "Squirrel!") {
