@@ -2,51 +2,66 @@
 
 #include <cstdlib>
 
-MateriaSource::MateriaSource() : _ice_mat(NULL), _cure_mat(NULL) { }
+MateriaSource::MateriaSource() {
+	init_slots();
+}
 
-MateriaSource::MateriaSource(const MateriaSource &other) :
-    _ice_mat(static_cast<Ice *>(other._ice_mat->clone())),
-    _cure_mat(static_cast<Cure *>(other._cure_mat->clone())) { }
+MateriaSource::MateriaSource(const MateriaSource &other) {
+	copy_slots(other._slots);
+}
 
 MateriaSource::~MateriaSource() {
-        delete_materia();
+        delete_slots();
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &other) {
         if (this != &other) {
-                delete_materia();
-                if (other._ice_mat != NULL) {
-                        _ice_mat = static_cast<Ice *>(other._ice_mat->clone());
-                }
-                if (other._cure_mat != NULL) {
-                        _cure_mat =
-                            static_cast<Cure *>(other._cure_mat->clone());
-                }
+		delete_slots();
+		copy_slots(other._slots);
         }
         return *this;
 }
 
 void MateriaSource::learnMateria(AMateria *materia) {
-        if (materia->getType() == "ice" && _ice_mat == NULL) {
-                _ice_mat = static_cast<Ice *>(materia->clone());
-        } else if (materia->getType() == "cure" && _cure_mat == NULL) {
-                _cure_mat = static_cast<Cure *>(materia->clone());
-        }
+	for (size_t idx = 0; idx < MATERIASOURCE_SLOTS; ++idx) {
+		if (_slots[idx] == NULL) {
+			_slots[idx] = materia->clone();
+			break;
+		}
+	}
         delete materia;
 }
 
 AMateria *MateriaSource::createMateria(const std::string &type) {
-        if (type == "ice" && _ice_mat != NULL) {
-                return _ice_mat->clone();
-        } else if (type == "cure" && _cure_mat != NULL) {
-                return _cure_mat->clone();
-        }
+	for (size_t idx = 0; idx < MATERIASOURCE_SLOTS; ++idx) {
+		if (_slots[idx] != NULL && _slots[idx]->getType() == type) {
+			return _slots[idx]->clone();
+		}
+	}
         return NULL;
 }
 
-void MateriaSource::delete_materia() {
-        delete _ice_mat;
-        _ice_mat = NULL;
-        delete _cure_mat;
-        _cure_mat = NULL;
+void MateriaSource::init_slots() {
+	for (size_t idx = 0; idx < MATERIASOURCE_SLOTS; ++idx) {
+		_slots[idx] = NULL;
+	}
+}
+
+void MateriaSource::delete_slots() {
+	for (size_t idx = 0; idx < MATERIASOURCE_SLOTS; ++idx) {
+		if (_slots[idx] != NULL) {
+			delete _slots[idx];
+			_slots[idx] = NULL;
+		}
+	}
+}
+void MateriaSource::copy_slots(const AMateria * const slots[MATERIASOURCE_SLOTS]) {
+	for (size_t idx = 0; idx < MATERIASOURCE_SLOTS; ++idx) {
+		const AMateria *slot = slots[idx];
+                if (slot != NULL) {
+                        _slots[idx] = slot->clone();
+                } else {
+                        _slots[idx] = NULL;
+                }
+	}
 }

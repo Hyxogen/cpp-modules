@@ -1,14 +1,19 @@
 #ifndef MATERIA_SOURCE_HPP
 #define MATERIA_SOURCE_HPP
 
-#include "Cure.hpp"
 #include "IMateriaSource.hpp"
-#include "Ice.hpp"
+#include "AMateria.hpp"
+
+#ifndef MATERIASOURCE_SLOTS
+# define MATERIASOURCE_SLOTS 4
+#endif
+#if MATERIASOURCE_SLOTS <= 0
+# error "MATERIASOURCE_SLOTS must be a positive integer"
+#endif
 
 class MateriaSource : public IMateriaSource {
     private:
-        const Ice  *_ice_mat;
-        const Cure *_cure_mat;
+	AMateria *_slots[MATERIASOURCE_SLOTS];
 
     public:
         MateriaSource();
@@ -22,7 +27,9 @@ class MateriaSource : public IMateriaSource {
         AMateria *createMateria(const std::string &type);
 
     private:
-        void delete_materia();
+	void init_slots();
+	void delete_slots();
+	void copy_slots(const AMateria *const slots[MATERIASOURCE_SLOTS]);
 };
 
 #endif /* MATERIA_SOURCE_HPP */

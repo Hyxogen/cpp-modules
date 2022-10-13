@@ -2,6 +2,8 @@
 
 #include "Character.hpp"
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 void character_tests() {
         std::cout << "----Character tests----" << std::endl;
@@ -255,6 +257,51 @@ void materiasource_tests() {
                 std::cout << "Got a pointer when expecting null at: "
                           << __LINE__ << std::endl;
         }
+
+        src.learnMateria(new Cure());
+
+        tmp = src.createMateria("cure");
+        if (tmp == NULL) {
+                std::cout << "Get null when expecting a pointer at: "
+                          << __LINE__ << std::endl;
+        } else if (dynamic_cast<Cure *>(tmp) == NULL) {
+                std::cout << "Expected an object of type Ice at: " << __LINE__
+                          << std::endl;
+        } else {
+                std::cout << "use cure" << std::endl;
+                tmp->use(subject);
+        }
+	delete tmp;
+
+        src.learnMateria(new Cure());
+
+        tmp = src.createMateria("cure");
+        if (tmp == NULL) {
+                std::cout << "Get null when expecting a pointer at: "
+                          << __LINE__ << std::endl;
+        } else if (dynamic_cast<Cure *>(tmp) == NULL) {
+                std::cout << "Expected an object of type Ice at: " << __LINE__
+                          << std::endl;
+        } else {
+                std::cout << "use cure" << std::endl;
+                tmp->use(subject);
+        }
+	delete tmp;
+
+        src.learnMateria(new Cure());
+
+        tmp = src.createMateria("cure");
+        if (tmp == NULL) {
+                std::cout << "Get null when expecting a pointer at: "
+                          << __LINE__ << std::endl;
+        } else if (dynamic_cast<Cure *>(tmp) == NULL) {
+                std::cout << "Expected an object of type Ice at: " << __LINE__
+                          << std::endl;
+        } else {
+                std::cout << "use cure" << std::endl;
+                tmp->use(subject);
+        }
+	delete tmp;
 }
 
 int main() {
