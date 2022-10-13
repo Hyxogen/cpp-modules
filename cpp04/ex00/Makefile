@@ -1,6 +1,6 @@
 TARGET		:= test
 
-SOURCES		:= main.cpp Animal.cpp Dog.cpp Cat.cpp
+SOURCES		:= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 HEADERS		:= Animal.hpp Dog.hpp Cat.hpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
