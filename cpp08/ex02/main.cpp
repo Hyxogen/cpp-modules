@@ -76,8 +76,8 @@ void iterator_tests() {
         ASSERT_EQUAL(*it, 737);
         ++it;
         ASSERT_EQUAL(*it, 0);
-	++it;
-	ASSERT_EQUAL(it, mstack.end());
+        ++it;
+        ASSERT_EQUAL(it, mstack.end());
 }
 
 int main() {

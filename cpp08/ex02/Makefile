@@ -4,8 +4,8 @@ SOURCES		:= main.cpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
-CXX		:= g++
-CXX_FLAGS	:= -I. -std=c++11 -Wall -Wextra -Werror -Wconversion -pedantic -O0 -g3 -fsanitize=address,undefined -MMD
+CXX		:= c++
+CXX_FLAGS	:= -I. -std=c++98 -Wall -Wextra -Werror -Wconversion -pedantic -O0 -g3 -fsanitize=address,undefined -MMD
 
 SILENT		:= @
 ifndef verbose

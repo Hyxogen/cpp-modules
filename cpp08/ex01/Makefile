@@ -1,6 +1,6 @@
 TARGET		:= test
 
-SOURCES		:= main.cpp
+SOURCES		:= main.cpp Span.cpp
 HEADER_DEPS	:= $(addsuffix .d,$(SOURCES))
 OBJECTS		:= $(addsuffix .o, $(SOURCES))
 
@@ -19,7 +19,7 @@ $(TARGET): $(OBJECTS)
 	$(SILENT)$(CXX) -o $(TARGET) $(OBJECTS) $(CXX_FLAGS)
 
 -include $(HEADER_DEPS)
-%.cpp.o: %.cpp
+%.cpp.o: %.cpp Makefile
 	$(SILENT)$(CXX) $(CXX_FLAGS) -o $@ -c $<
 
 .PHONY: clean
